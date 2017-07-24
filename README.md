@@ -4,7 +4,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Source Control (git)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- TDD / Unit Testing
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- TDD / Unit Testing (JUnit)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Agile Development
 
@@ -18,7 +18,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- RESTful services
 
 ### Web Development
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- HTML, JavaScript, CSS Fundamentals
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- HTML5, JavaScript (node.js), CSS Fundamentals
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Bootstrap, Responsive Design
 
