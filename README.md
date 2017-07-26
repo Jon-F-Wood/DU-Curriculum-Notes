@@ -15,7 +15,7 @@
 ### Server Side Development
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Spring Fundamentals, Spring Boot
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- RESTful services
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- RESTful Services
 
 ### Web Development
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- HTML5, JavaScript (node.js), CSS Fundamentals
@@ -38,4 +38,4 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Daugherty Capability Overview
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Resume creation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Resume Creation
