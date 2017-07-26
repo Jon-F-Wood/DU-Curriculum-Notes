@@ -1,0 +1,187 @@
+-Basic Global Setup
+	> Basic setup for global local pc:
+		- git config --global user.name "John Doe"   ---------------------------
+		- git config --global user.email johndoe@example.com -------------------
+	> Show all configuration: git config --list  -------------------------------
+	> Shows username:  git config user.name   ----------------------------------
+
+
+I. Navigation Cmds
+	A. Open the CMD Prompt:  Right Click a folder and select "Git Bash Here" 
+	B. git checkout <branch name>    -------------------------------------------
+		1. Moves you into the various branches to work on the files from those branch.
+		2. To navigate back to the master branch, make the branch name 'master'
+	C. cd <folder name>  -------------------------------------------------------
+		- brings you into a folder found in the current list of files
+	D. cd ..     ---------------------------------------------------------------
+		- brings you up a tier in the folder
+	E. dir    ------------------------------------------------------------------
+		- will show you a list of files in your current directory
+	F. git checkout <branch name>
+		- will bring you into branch name
+II. File Creation Cmds
+	A. git init  ---------------------------------------------------------------
+		1. Create or Reinitialize Git repository in current folder
+		2. This git repository will track all changes made to the files inside the folder the git init command was used in through the navigation and moving files commands
+	B. touch <file name>  ------------------------------------------------------
+		1. Create a new file in the current directory
+		2. Dont forget to include the . suffix such as .txt or .html
+	C. git branch <branch name>    ---------------------------------------------
+		1. Create a new branch referencible by the branch name assigned to it
+		2. A branch is a copy of the current repository you are working in so you can work on without effecting the 'master' project.  
+		3. This branch acts as a completely separate repository where you can stage and commit files to the branch 
+		4. The intention of every branch is to later MERGE the branch back into the master once all of the series of changes are made and confirmed
+		5. Name the branch based on the planned actions/changes that will be preformed inside the branch
+
+
+III. Finding Status of Files Cmds
+	A. git status  ----------------------------------------------------------
+		1. Untracked files:  
+			- Tells you "Untracked(unadded/new) Files" currently found locally in that directory but not yet staged
+		2. Changes to be committed:
+			- Tells you the edited or new files that have been staged(git add <file name>) but not committed to the current directory
+		3. Changes not staged for commit:
+			- Tells you modified files that have not been staged in your current directory
+		4. 'You have unmerged paths.' : Tells you which files you are currently having conflict with in you current Merge
+  			- fix conflicts and run "git commit"
+  			- use "git merge --abort" to abort the merge
+			- Unmerged paths:
+  				> use "git add <file>..." to mark resolution
+        		> both modified:   README.txt
+			- if no changes added to commit (use "git add" and/or "git commit -a")
+
+		5. 'nothing shows up'
+			- This means that the current directory has not had any changes since the last commit and has no need to add or commit any files at the current moment
+	B. git log      -----------------------------------------------------------
+		- gives a log of all commits and when they were made along with the comment made in the commit
+
+	C. git diff <file name>    ------------------------------------------------
+		- Shows difference from previous committed file and current file
+	D. git branch    -----------------------------------------------------------
+		-display all branches in the current repository
+	
+IV. Changing File States Cmds
+	A. Staging Files: Moving a file into and out of the 'staging area' to review them before committing the to the current branch or repository	
+		1. git add <'file or group of files'>   -----------------------------
+			- Suffixes
+				> Single file:  README.TXT
+				> All files with a specific file type: *.txt
+				> All file changes/new files in directory: .    or  -A
+			- What it does
+				> adds all edited and newly created files to an 'area' called the staging area. 
+				> all files that have been "add"ed are offically "Staged"
+		2. git rm --cached <'file or group of files'>   ---------------------
+			- Unstage a file or group of files
+	B.Committing Files: Confirming the changes in a file or group of files and moving those changes to the current branch or repository, typically accompanied by a comment of some sort explain the changes
+		1. git commit  ------------------------------------------------------
+			- By itself this command will lead to a new window for a larger explaination of the changes from that commit
+			- Press the 'i' key to enter INSERT MODE
+			- Type comment explaining changes
+			- Hit 'esc' to exit insert moce
+			- Type ':wd' and press enter to go back to the normal cmd menu
+		2. git commit -m 'Comment here'   ------------------------------------
+			- A different syntax that helps avoid having to use the other menu
+		3. git commit -a -m 'Comment here'    --------------------------------
+			- This sytax adds and commits all changes/modifications made in the directory but...
+			- This doesn't add and commit Untracked files
+		4. git commit --amend
+			- undo the last commit for small mistakes
+	C. Ignoring Files: At time you need to ignore certain files that change between commits such as output files that output to the current directory like a text.log file etc.  You do this by making a list using common git naming conventions (file name, *.log) named .gitignore
+		1. touch .gitignore
+			- use this to create a .gitignore file in the repository
+		2. open the file and type in the list of file names/ *. suffixes you want to ignore going forward and save the changed file
+			- after this all files in that list that are found in the current dirrectory will be ignored
+		3. add and commit the .gitignore file
+
+V. Merging Branches Cmds
+	A. git merge <branch name>   -----------------------------------------------
+		1. Start in branch you want the files merged too (merge destination)
+		2. <branch name> = the branch you wish to merge to the current branch
+	B. Merge Conflicts:  Whenever a single file is edited in multiple branches at a time, trying to merge those branches creates a merge conflict in that file.
+		1. You can find out if there has been a merge conflict with 'git status'
+		2. Whenever there is a merge conflict follow these steps
+			- fix conflicts and run "git commit"
+  			- use "git merge --abort" to abort the merge
+			- Unmerged paths:
+  				> use "git add <file>..." to mark resolution
+        		> both modified:   README.txt
+			- if no changes added to commit (use "git add" and/or "git commit -a")	
+		3. git mergetool    ----------------------------------------------------
+			- You can download MergeTools to help automatically fix merge conflicts	
+	C. Stashing Files: You Stash files whenever you want to move from one branch to another without committing your current changes to the current branch.  You can Stash the files, move around to different repositories and make changes there then come back later to them to confirm your edits
+		1. git stash   ---------------------------------------------------------
+			- Set aside all Staged files found in the current branch (files must be 'added' to be stashed)
+		2. git stash apply  ----------------------------------------------------
+			- Bring all stashed files that have been staged in the current branch back to being Staged files in the current branch
+
+VI. Remote Repository Cmds
+	A. Viewing Remote Repositories info	
+		1. git remote    -------------------------------------------------------
+			- Displays a list of the names of the remote repositories you currently have access to through the prompt
+		2. git remote -v    ----------------------------------------------------
+			- Displays a list of the names of the remote repositories you currently have access to through the prompt with the URL and a list of possible commands
+	B. Adding Remote Repository Access to the local machine
+		1. git clone <remote repository url>  ----------------------------------
+			- Url can be found on GitHub on a repositories -> code tab -> Green 'Clone or download v' button
+			- Copies all files in that repository on the local machine 
+		2. git remote add <New Repository Name> <Repository URL>
+			- Gives access to files from a remote repository without moving files to the local machine from the remote repository		
+	C. Getting Files From a Remote Repository
+		1. git fetch <target remote repository name> <target remote branch if needed>   --------------------------------------------------------------
+			- gathers any commits from the target branch that do not exist in your current branch and stores them in your local repository.
+			- However, it does not merge them with your current branch. 
+			- This is particularly useful if you need to keep your repository up to date, but are working on something that might break if you update your files. 
+		2. git pull <target remote repository name> <target remote branch if needed>   --------------------------------------------------------------
+			- Is context sensitive, so Git will merge any pulled commits into the branch you are currently working in.  
+			- Will automatically merge the commits without letting you review them first. 
+			- If you don’t closely manage your branches, you may run into frequent conflicts.
+	D. Make Changes to the Remote Repository
+		1. git push    ---------------------------------------------------------
+			- Pushes all committed changes in the current branch up to the remote repository
+		2. git push <target remote repository name> <target remote branch if needed>   --------------------------------------------------------------
+			- Pushes all committed changes up to the remote repository target destination
+		3. git push --set-upstream origin Modular_JS_Conversion
+			-push to remote Repository
+
+VII. WORKFLOW
+	A. Normal Workflow without branches
+		1. Start of Work Session:   git pull
+		2. Make Changes and Commit changes 
+			- do incrimentally
+		3. Every couple hours use git pull(if on team)
+		4. Fix conflicts as you go
+	B. Workflow with Branches
+		1. git pull
+		2. git branch to view branches
+		3. navigate to or create a branch
+			- git checkout <branch name>
+			- git branch <new branch name>
+		4. Work with new branch and make requested changes
+		5. Make Pull Request
+			1. navigate to destination branch (Ex. master) using git checkout
+			2. update the destination branch with git pull (to update it for the remote repository)
+			3. navigate back to the branch we were working in with git checkout
+			4. merge the branch destination (Ex. master) to the branch you are working in with git merge <destination branch> to merge the pulled changes to the working directory
+			5. work out any merge conflicts (use git status to find conflict details) and commit those changes
+			6. use git push on working branch
+			7. Make pull request on GitHub and get someone to sign off on the changes
+		6. Make requested Changes to working branch and push it back to GitHub
+		7. Once the pull request is confirmed and the branch is merged to master if done with the branch delete the branch
+		8. pull master branch to desktop to confirm the changes
+
+
+
+
+
+
+
+
+Command Prompt Cmds
+	dir
+	cd <File Name>
+	cd .. 
+		up a level in the 
+
+
+
+

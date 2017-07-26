@@ -1,0 +1,490 @@
+<!--HTML5 DOCTYPE-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>An HTML5 standard template</title>
+<!--HTML5 meta-->
+		<meta charset="UTF-8" />
+<!--HTML5 style-->
+		<style type="text/css">
+			.box {
+				background: grey;
+				height: 50px;
+				width: 200px;
+			
+			/*The border-radius property applies rounded corners to borders.*/
+				border-top-left-radius: 15px;
+				border-top-right-radius: 15px;
+				border-bottom-right-radius: 15px;
+				border-bottom-left-radius: 15px;
+
+				border-radius: 15px;
+				border-radius: 4px 15px 12px 10px;
+				/*border-radius: <top left> <top right> <bottom right> <bottom left>;*/
+				border-radius: 50%; /*You can also specify the border-radius value in percentages (circle)*/
+
+			/*The box-shadow property specifies a shadow on an element.*/
+				box-shadow: 1px 2px 2px #000;
+				/*box-shadow: <inset> <offset-x> <offset-y> <blur-radius> <spread-radius> <color>
+					๏   <inset>  -  (optional)If it is not specified (which is the default), a "drop shadow" is created,rather than an inset shadow. 
+					๏   <offset-x>  -  (not-optional) The shadow offset x value. 
+					๏   <offset-y>  -  (not-optional) The shadow offset y value.
+					๏   <blur-radius>  -  (optional) The blur-radius alters the blur amount of the shadow, causing it to become bigger and lighter (with a larger value).
+					๏   <spread-radius>  -  (optional) The spread-radius causes the shadow to expand or shrink. 
+					๏   <color>  -  (optional) The color of the shadow.
+				*/
+				box-shadow: 1px 2px 0 2px #000;/*0 then 2px makes the blur radius into a spread radius*/
+				box-shadow:
+					1px 1px 2px #000,
+					inset 1px 1px 2px blue;/*multiple box-shadows via a comma-separated list*/
+				box-shadow: -1px -2px 2px #000;/*negative value is similar to inset*/
+			
+			/*Box-Sizing
+				The box-sizing property is used to change the default CSS box model, which is used to calculate widths and heights of given elements.
+				๏   The CSS box model references the design and layout of given HTML elements
+				๏   Each HTML element is a “box,” which consists of margins, borders, padding, and the content of the element
+				๏   The “box model” refers to how those properties are calculated in conjunction with one another in order to set the element’s dimensions
+			*/
+				box-sizing: content-box; /* 
+				๏ content-box(default)
+					- measured by including only the content, but not the border, margin, or padding.
+				๏ padding-box
+					- The width and height include the padding, but do not include the border or margin.
+				๏ border-box
+					- The width and height include the padding and border, but not the margin.*/
+				width: 300px;
+				padding: 10px;
+				border: 2px solid black;
+				margin: 20px;
+			}
+			
+			
+			
+			.element {
+			/*Multiple Backgrounds
+				They are stacked in the order in which you specify them.*/
+				background-image: url(bg1.png), url(bg2.png);				
+				background-position: top left, center right;
+				background-repeat: no-repeat, no-repeat;
+
+				background: 
+					url(bg1.png) top left no-repeat,
+					url(bg2.png) center right no-repeat;
+			
+			/*Color Syntax*/
+				color: rgba(0, 0, 0, 0.75); /*RGB represents the three additive primary colors, red, green, and blue.  In CSS3, we can also pass the alpha value (the “a” in RGBa), whichrepresents the opacity of a color.
+				*/
+				color: hsla(240, 100%, 50%, 0.75); /*CSS3 also adds HSLa (Hue, Saturation, Lightness). In addition to providing the hue, saturation, and lightness values, you can specify the alpha value for the opacity of the color.*/	
+			
+			/*Opacity*/
+				opacity: 0.45; /*=45% (only decimal point syntax)*/
+			
+			/*Gradients - A smooth transitions between two or more colors.
+				There are two types of gradients that browsers support:
+				๏   Linear gradients
+				๏   Radial gradients*/
+				background: linear-gradient(to bottom, red, yellow); 
+				/*linear-gradient(<angle> to <side-or-corner>, <color-stop>s)
+				๏   <angle> - ##deg 
+				๏   to <side-or-corner> -  to top=0deg, to bottom=180deg, to right=270deg, to left=90deg
+				๏   <color-stop> - The color-stops consists of a color and an optional stop position, which can be either a percentage or length.*/
+				/*To create a linear gradient, we need to specify the starting point, the ending point, and optional stop-color points.*/
+				background: radial-gradient(circle at top left, aqua, blue);
+				/*radial-gradient(<shape> <size> at <position>, <color-stop>s)
+				๏   <shape> - circle or ellipse (default=ellipse).
+				๏   <size> - The size of the gradient 
+						- closest-side, closest-corner, farthest-side, farthest-corner(default)
+						- Can also be a length or percentage.
+				๏   at <position> - Same as backgroundposition (Default=center)
+				๏   <color-stop> - The color-stops consists of a color and an optional stop position, which can be either a percentage or length.
+				*/
+
+			/*Transform - Transform can translate, rotate, scale, and skew elements*/
+				transform: translate(20px, 30px);
+				/*(can be %)x-axis +=right -=left*/	
+				/*(can be %)y-axis +=down -=up*/
+				transform: translateX(20px);
+				transform: translateY(30px);
+
+				transform: rotate(45deg);
+
+				transform: scale(1.2, 0.8);
+				transform: scaleX(1.2);
+				transform: scaleY(0.3);
+
+				transform: skewX(-25deg);
+				transform: skewY(-85deg);			
+			}
+			
+			/*Transition - between two states of a specified element.*/	
+			.element {
+				background-color: black;
+				transition: background-color 0.2s ease-in-out;
+				/*transition: <property> <duration> <timing-function> <delay>
+				๏   <timing-function>  -  ease, ease-in, ease-in-out, linear, cubic-bezier, step-start, step-end, steps()   
+				*/				
+				transition-property: background-color;
+				transition-duration: 0.2s;
+				transition-timing-function: ease-in-out;  
+				transition-delay: 0.1s; 
+
+				transition: all 0.2s ease-in-out;				
+			}
+
+			.element:hover {
+				background-color: blue;
+			}
+			
+			/*Text-Shadow*/
+			h1 {
+				text-shadow: 1px 2px 2px #000;	
+				/*text-shadow: <offset-x> <offset-y> <blur-radius>(The blur-radius alters the blur amount of the shadow, causing it to become bigger and lighter (with a larger value).) <color>*/
+			}
+			
+			/*Font-Face - The color-stops consists of a color and an optional stop position, which can be either a percentage or length.*/
+			@font-face {
+				font-family: 'OpenSansRegular'; /*Declared like:
+				h1 {
+					font-family: 'OpenSansRegular', Georgia, "Times New Romans", serif;
+				}
+				*/				
+				src: url('OpenSansRegular-webfont.eot');				
+				font-style: normal;
+				font-weight: normal;
+
+				/*Bold*/
+				font-family: 'OpenSansRegular';
+				src: url('OpenSansBold-webfont.eot');
+				font-style: normal;
+				font-weight: bold;
+			}	
+		</style>
+	<!--HTML5 link-->
+		<link rel="stylesheet" href="file.css" />
+	</head>
+
+	<body>
+
+
+<!--Block Elements
+-Container elements for grouping
+-May contain other block elements and line elements
+๏   Div, P, blockquote etc.-->
+
+	<!--HTML5 <header> tags and syntax
+	A group of introductory or navigational aids.
+	๏   There can be many different headers on a page
+	๏   Usually appears at the top of a document or section, but is defined by its content rather than its position
+	-->	
+		<header>
+			<!-- ... -->
+		</header>
+		<section>
+			<header>
+				<h1>The heading of the section</h1>
+				<p>This is content in the header.</p>
+			</header>
+			<p>This is some information within the section.</p>
+		</section>
+	
+	<!-- HTML5 <nav> tag and syntax
+	The nav element represents a section of a page that links to other pages or to  arts within the page: a section with navigation links.
+	๏   The nav element is intended for “major navigation."
+	-->
+		<nav>
+			<ul>
+				<!-- ... -->
+			</ul>
+		</nav>
+
+	<!-- HTML5 <main> tag and syntax
+	The main element represents the main content of the body of a document or application.
+	๏   The main content area consists of content that is directly related to orexpands upon the central topic of a document or central functionality of an application.
+	๏   Do not include more than one main element in a document
+	๏   Do not include the main element inside of an article, aside, footer, header, or nav element
+	-->
+		<main>
+			<!-- ... -->
+		</main>
+
+	<!-- HTML5 <article> tag and syntax
+	The article element represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication.
+	๏   The article element is another type of section. It is used for self-contained related content.
+	๏   Determining if a particular piece of content is “self-contained:” Ask yourself if you would syndicate the content in an RSS or Atom feed.
+	๏   A blog post
+	๏   A news story
+	๏   A comment on a post
+	๏   A review
+	-->
+		<article>
+			<!-- ... -->
+		</article>
+
+	<!-- HTML5 <Section>/<div> tags and syntax
+	A div has no semantic meaning, but the section element does. It’s used for grouping together thematically related content.
+	-->
+		<section>used for grouping together thematically related content</section>
+		<div>no semantic meaning</div>
+	
+	<!--HTML5 <h> tags syntax-->		
+		<h1>This is the title of the page.</h1>
+		<section>
+  			<h1>This is the title of a sub-section.</h1> 
+		</section>	
+	
+	<!--HTML5 <aside> tag and syntax
+	The HTML5 spec defined the aside element as being “tangentially related to the content surrounding it.”
+	๏   When used within an article element, the aside contents should be related to that particular article it is contained within.
+	๏   When used outside an article element, the aside contents should be specifically related to the site.
+	๏   An aside element is appropriate when it is used to represent content that is not the primary focus of an article or page, but it is still related to the article or page.
+	-->	
+		<section>
+			<header>
+				<h1>The heading of the section</h1>
+				<p>This is content in the header.</p>
+			</header>
+				<p>This is some information within the section.</p>
+			<aside>
+				<p>Some secondary information about this section</p>
+			</aside>
+			<footer>
+				<p>By "Author Name"</p>
+			</footer>
+		</section>
+		<aside>
+			<p>Some secondary information about the entire page (like a sidebar)</p>
+		</aside>
+
+	<!-- HTML5 <figure> and <figcaption> tags and syntax
+	The figure element represents a unit of content, optionally with a caption, that is self-contained, that is typically referenced as a single unit from the main flow of the document, and that can be moved away from the main flow of the document without affecting the document’s meaning.
+	๏	A common use of the figure tag is for an image within an article.
+	The figcaption element represents a caption or legend for a figure.
+	-->
+		<figure>
+			<img src="image.jpg" alt="My Picture" />
+			<figcaption>This is a caption for the picture.</figcaption>
+		</figure>
+
+	<!-- HTML5 <input> and <form> tags and syntax
+	๏	Input type will default back to blank text if browser doesn't recognize type
+	๏	color
+	๏	datalist
+	๏	date
+	๏	datetime
+	๏	datetime-local
+	๏	email
+	๏	month
+	๏	number
+	๏	range
+	๏	search
+	๏	tel
+	๏	time
+	๏	url
+	๏	week
+	-->	
+
+		<form novalidate>
+		
+		<!--The search input represents a one-line plain-text edit control for entering one or more search terms.-->
+			<label>Search:</label>
+			<input type="search"
+					id="search" name="search"
+					autofocus><!--The "autofocus" attribute will automatically focus the specified input when the page is rendered. !IMPORTANT - only 1 per page-->
+		</form>
+
+		<form>
+			<label for="name">Name:</label>
+			<input type="text"
+					id="name" name="name"
+					placeholder="First and Last" required><!--The "placeholder" attribute allows you to specify a message that is shown inside the input, hidden when the user starts typing, and then returns when focus is lost on the input (when the input is blank).-->
+		
+			<label for="patternExample">Name:</label>
+			<input type="text"
+					id="patternExample" name="patternExample"
+					pattern="[0-9]{3}" required><!--The pattern attribute accepts a JavaScript regular expression that can be used to validate a form field to match the pattern.-->
+
+		<!--The email input looks just like a regular text input, but with added usability on mobile devices.-->
+			<label for="email">Email:</label>
+			<input type="email"
+					id="email" name="email"
+					required><!--TIf you add the new HTML5 "required" attribute to an input, when the form is submitted, the user will be notified of an error if the field is left blank.-->
+		
+		<!--The url input looks just like a regular text input, but with added usability on mobile devices.-->
+			<label for="url">URL:</label>
+			<input type="url"
+					id="url" name="url">
+
+		<!--Again, the tel input looks just like a regular text input, but with added usability on mobile devices.-->
+			<label for="phone">Telephone:</label>
+			<input type="tel"
+					id="phone" name="phone" 
+					required>
+
+		<!--The input element with a type attribute whose value is "number" represents a precise control for setting the element’s value to a string representing a number.-->
+			<label for="yearsInDev">Number of Years in Development:</label>
+			<input type="number"
+					id="yearsInDev" name="yearsInDev"
+					min="5" max="40" step="2">
+
+		<!--The input element with a type attribute whose value is "range" represents an imprecise control for setting the element’s value to a string representing a number.-->
+			<label for="devExperienceRange">Development Experience Range:</label>
+			<input type="range"
+					id="devExperienceRange" name="devExperienceRange"
+					min="0" max="100" step="1" value="50" />
+			<span id="rangeValue">50</span>
+
+			<label for="tShirtColor">T-Shirt Color</label>
+			<input type="text"
+					id="tShirtColor" name="tShirtColor"
+					list="color" />
+			<datalist id="color"><!--The datalist element represents a set of option elements that represent predefined options for other controls.-->
+				<option value="Blue">
+				<option value="Red">
+				<option value="Green">		
+			</datalist>
+
+		<!--The input element with a type attribute whose value is "color" represents a color-well control, for setting the element’s value to a string representing a simple color.-->
+			<label for="bgcolor">Background Color</label>
+			<input type="color"
+					id="bgcolor" name="bgcolor"
+					value="rgb(128,0,0)" />
+		
+		<!--The input element with a type attribute whose value is "date" represents a control for setting the element’s value to a string representing a date.-->
+			<label for="arrivalDate">Arrival Date</label>
+			<input type="date"
+					id="arrivalDate" name="arrivalDate"
+					value="2011-01-01" min="2011-01-01" max="2021-12-31" />
+
+			<label for="arrivalDT">Arrival Date/Time</label>
+			<input type="datetime"
+					id="arrivalDT" name="arrivalDT"
+					value="2011-01-01 9:30:00 UTC" />
+
+		<!--The input element with a type attribute whose value is "datetime-local" represents a control for setting the element’s value to a string representing a local date and time (with no timezone information).-->
+			<label for="arrivalDTLocal">Arrival Date/Time</label>
+			<input type="datetime-local"
+					id="arrivalDTLocal" name="arrivalDTLocal"
+					value="2011-01-01 9:30:00" />
+
+			<label for="arrivalTime">Arrival Time</label>
+			<input type="time"
+					id="arrivalTime" name="arrivalTime"
+					value="2011-01-01 9:30:00" />
+
+			<label for="birthMonth">Birth Month</label>
+			<input type="color"
+					id="bgcolor" name="bgcolor"
+					value="1965-04" />
+
+			<label for="vacationWeek">Vacation Week</label>
+			<input type="week"
+					id="vacationWeek" name="vacationWeek"
+					value="2011-W26" />
+		</form>
+
+	<!--HTML5 <footer> tag and syntax
+	The footer element represents a footer for its nearest ancestor sectioning content or sectioning root element.
+	๏   The footer element is not position-dependent.
+	๏   It should describe the content it is contained within.
+	-->
+		<section>
+			<header>
+				<!--.....-->
+			</header>
+			<p>This is some information within the section.</p>
+			<footer>
+				<p>By "Author Name"</p>
+			</footer>
+		</section>
+		<footer>
+			<p>By "Author Name"</p>
+		</footer>
+
+
+<!--Inline Elements
+-Container for text and other inline elements
+-span, h1-6, etc.
+-inline elements only 
+-no div in span-->
+
+	<!--ID & Class 
+	ID	
+		- used to identify a specific item in a page
+		- used in scripting/maniputlating that item with javascript
+		- used in CSS
+		- only needs to be unique to that page
+	Class
+		- used to identify items on the page but can be multiple items
+		- can be used in script/css-->
+	<h1 id="myMessage" class="message">Hello World</h1>
+	<!--Refferenced in CSS as:
+		(ID) #myMessage { },  (Class) .message { }, (DOM) p { }-->
+
+	<!-- HTML5 <i> tag and syntax
+	The i tag represents text in an “alternate voice” or “mood”
+	๏	Taxonomic designation
+	๏	Technical term
+	๏	Idiomatic phrase from another language
+	๏	Transliteration
+	๏	A thought
+	๏	Ship name in Western texts
+	-->
+		<p><i>I hope this works</i>, he thought.</p>
+	
+	<!-- HTML5 <b> tag and syntax
+	The b tag represents “stylistically oﬀset” text
+	๏	Key words in a document abstract
+	๏	Product names in a review
+	๏	Actionable words in interactive text-driven software
+	๏	Article lead
+	-->
+		<p><b class="lead">The event takes place this upcoming Saturday, and over 3,000 people have already registered.</b></p>
+
+	<!-- HTML5 <em>/<strong> tags and syntax
+	The em tag now means “stress emphasis”
+	The strong tag now means “strong importance”
+	-->
+		<p>Make sure to sign up <em>before</em> the day of the event, <strong>September 16, 2013</strong>.</p>
+
+	<!--HTML5 <time> tag and syntax
+	The time element represents either a time on a 24 hour clock, or a precise date in the proleptic Gregorian calendar, optionally with a time and a time-zone offset.
+	๏	We use the datetime attribute to get our desired format
+	๏	Without the datetime attribute, content must be a valid date, time, or precise datetime.
+	-->	
+		<time>2013-09-16</time>
+		<time>09/16/2013</time>
+		<time datetime="2013-09-16">09/16/2013</time>
+
+	<!--HTML5 <sup> and <sub> tags and syntax
+	๏	Superscript and subscript - for creation notation of equations
+	๏	Trademark, etc.-->
+	-<sup></sup><sub></sub>
+		
+<!--WHITESPACE
+-Text Breaking and White Space
+	๏	Whitespace Generally ignored in block and inline elements
+	-->
+
+	<!--HTML5 <pre> tag and syntax
+	๏	Whitespace is respected-->
+	<pre> </pre>
+
+	<!--HTML5 <br /> tag and syntax
+	๏	Explicit line break-->
+	<br/> 
+
+	<!--HTML5 <br /> tag and syntax
+	๏	Horizontal rule/line-->
+	<hr/> 
+
+	<!--Character Entitites
+	๏	&text; Format-->
+		<!--Non-Breaking-White-Space 
+		๏	space which cannot be used for line breaks-->
+		&nbsp; 
+		<!--Less-Than/Greater-Than
+		๏	entities for HTML markup characters-->
+		&lt; &gt; 
+	
+	</body>
+</html>

@@ -1,0 +1,70 @@
+System.out.println("Hello, World.");
+System.out.printf("%-15s %03d %n", s1, x);
+
+Scanner sc = new Scanner(System.in);
+String myString = sc.next();
+int myInt = sc.nextInt();
+sc.close();
+
+System.out.println("myString is: " + myString);
+System.out.println("myInt is: " + myInt);
+
+
+int testscore = 76;
+char grade;
+
+if (testscore >= 90 && True || False) {
+    grade = 'A';
+} else if (testscore >= 80) {
+    grade = 'B';        
+} else {
+    grade = 'F';
+}
+
+for(int i=1; i<=10; i++){
+
+}
+  
+if(x>=-128 && x<=127)System.out.println("* byte");
+//Complete the code
+if(x >= -Math.pow(2, 15) && x <= Math.pow(2, 15) - 1)
+    System.out.println("* short");
+if(x >= -Math.pow(2, 31) && x <= Math.pow(2, 31) - 1)
+    System.out.println("* int");
+if(x >= -Math.pow(2, 63) && x <= Math.pow(2, 63) - 1)
+    System.out.println("* long");
+
+
+Scanner scan = new Scanner(System.in);
+   for(int i = 1; scan.hasNext()== true; i++){
+       System.out.println(i + " " + scan.nextLine());
+   }
+
+
+
+static Scanner input = new Scanner(System.in);
+static boolean flag = true;
+static int B = input.nextInt();
+static int H = input.nextInt();
+
+static{
+    try{
+        if(B <= 0 || H <= 0){
+            flag = false;
+            throw new Exception("Breadth and height must be positive");
+        }
+    }catch(Exception e){
+        System.out.println(e);
+    }
+
+}
+
+
+
+
+int mm = in.nextInt();
+int dd = in.nextInt();
+int yy = in.nextInt();
+in.close();
+LocalDate dt = LocalDate.of(yy, mm, dd);
+System.out.print(dt.getDayOfWeek());

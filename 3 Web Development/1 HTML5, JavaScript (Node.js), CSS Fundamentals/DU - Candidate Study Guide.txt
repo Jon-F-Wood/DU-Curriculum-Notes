@@ -1,0 +1,468 @@
+/*
+----------------------------------Preparing for Assessment Process--------------------------------------
+The following guide is designed to prepare you for the upcoming Daugherty University hiring assessment
+process. The assessment will focus on your skills with the core JavaScript language features as outlined
+below. 
+
+The following is an outline of SOME of the topics you will be expected to know and demonstrate in
+coding exercises and short answer form.
+
+----JavaScript primitives (string, number, boolean, null and undefined)---------------------------------
+				Primitive Data-Type/Value 
+						- Defn: data that has a VALUE that has no properties or methods.
+						- To be clear, the variable x is not the primitive data type, but instead the VALUE of "Hello", 34, true, null, and undefined are.
+						- Primitive values are immutable (they are hardcoded and therefore cannot be changed).
+								- if x = 3.14, you can change the value of x. But you cannot change the value of 3.14.
+						*/
+				//Strings
+						var x = "Hello"; //		Look to String Operations below for more details
+
+				//Numbers
+						var x = 34; var x = 55.876; var x = -123; //Look to Math Operations below for more details
+
+				//Boolean
+						var x = true; var x = false; //Look to Control Flow and Loops below for more details
+
+				//Null
+						var x = null;
+						/* I'm not sure how much they will really be testing us on null, however the basic concept is simple.
+						- Null Defn: a non-existent value or having no value.
+						- Treated like a 0 mathematically
+								null + 4 --> 4
+								null * 3 --> 0
+						- Is considered an object type in JS
+								- Professional JS For Web Developers (Wrox): "You may wonder why the typeof operator returns 'object' for a value that is null. 
+                This was actually an error in the original JavaScript implementation that was then copied in ECMAScript. 
+                Today, it is rationalized that null is considered a placeholder for an object, even though, technically, it is a primitive value.
+						*/
+
+				//Undefined
+						var x; var x = undefined;
+						/* 
+						- Undefined Defn: a variable has been declared but has not yet been assigned a value.
+						- Outputs NaN(Not a Number) when used mathematically
+								null + 4 --> NaN
+								null * 3 --> NaN
+						*/
+
+
+----//Console.log()-------------------------------------------------------------------------------------
+				//Function that logs/outputs information to the console.
+				console.log('text'); //--> text
+				console.log('text', 'stuff'); //--> text stuff
+				console.log('text' + 'stuff'); //--> textstuff		
+						//Note: this is string interpolation
+				console.log(4, 3, 3+4); //--> 4 3 7
+
+
+----//Comments------------------------------------------------------------------------------------------
+				//For single line Comments
+				/* For
+				   Multi-line
+				   Comments
+				*/
+
+----//Variables-----------------------------------------------------------------------------------------
+				//Variable Defn: A container for a value that is subject to change upon assignment expressed by a series of characters
+				//Declaring:		
+						var x = 56; 
+						var x = 56, y = 88, z = 77;
+				//Manipulating Variables:
+						x = 33; // x was 56 but has now been reassigned the primative value of 33
+						x = y + z //x was 56 but has now been reassigned by adding y and z in other words 88 and 77 which means x is now 165 		
+		
+----//Math Operations-----------------------------------------------------------------------------------
+				/*
+				
+				+		Addition
+				-		Subtraction
+				*		Multiplication
+				/		Division
+				%		Modulus 
+						Divides then gives a remainder
+						53 % 5 --> 3
+				++		Increment
+						x = 4;
+						x++; //x now outputs 5
+						x--; //x now outputs 4 again
+				--		Decrement
+
+				*/
+
+----//String Operations----------------------------------------------------------------------------------
+				//These do not change the underlying string but instead output a modified version of a string
+				
+				var x = "Hello, World!"
+				//charAt		
+						var y = x.charAt(0); //y now outputs "H"
+						var y = x.charAt(4); //y now outputs "o"
+				
+				//slice		
+						//x.slice(startPosition, EndPosition);  
+						//Doesn't include the ending position character but only the characters between the start and end
+						var y = x.slice(0,3); //y now outputs "Hel"
+						var y = x.slice(2,6); //y now outputs "llo, "
+						var y = x.slice(6, -1); //y now outputs ", World!"
+						//Negative values are measured from the end of the line
+				
+				//split		
+						//spits a string into an array
+						var y = x.split(" "); //y now outputs an array of ["Hello,", "World!"]
+						var y = x.split(""); //y now outputs an array of ["H", "e", "l", "l", "o", ",", " ", "W", "o", "r", "l", "d", "!"]
+						var y = x.split("o"); //y now outputs an array of ["Hell", ", W", "rld!"]						
+
+				//substring		
+						//substring		
+						//x.substring(startPosition, EndPosition);  
+						//Doesn't include the ending position character but only the characters between the start and end
+						var y = x.substring(0,3); //y now outputs "Hel"
+						var y = x.substring(2,6); //y now outputs "llo, "
+						var y = x.substring(6, -1); //y now outputs "Hello,"
+						//Negative arguments are interpreted as zero. Too large values are truncated to the length of the string
+				
+				//toUpperCase
+						//Makes all letters in a string to upper case
+						var y = x.toUpperCase(); //y now outputs "HELLO, WORLD!"
+
+		
+----//Control flow and loops-----------------------------------------------------------------------------
+				//if/else/else if
+						var moonPhase = "full";
+
+						if (moonPhase === "full"){
+								console.log("Howwwwlll!!"); 
+						
+						//else if will only execute if the if or else if statements above it are false		   
+						} else if (moonPhase === "mostly full") {
+								console.log("Arms and legs are getting hairier");
+
+						//else will only execute if the if or else if statements above it are false		
+						} else {
+								console.log("Invalid moon phase");
+						}
+
+				//Comparison and Logical Operators
+						//&& --> AND
+								//Both conditional statements must be true
+								var x = true && true; //x now outputs true
+								var x = true && false; //x now outputs false
+								var x = false && false; //x now outputs false
+						//|| --> OR
+								//One or more conditional statements must be true
+								var x = true || true; //x now outputs true
+								var x = true || false; //x now outputs true
+								var x = false || false; //x now outputs false
+
+						//! --> NOT 
+								//Reverses the output of a conditional statement
+								var x = !(true); //x now outputs false
+								var x = !(false); //x now outputs true
+
+						//!== --> Not Equal To
+								var x = true !== true; //x now outputs false
+								var x = 43 !== 67; //x now outputs true
+								var x = "ten" !== 10; //x now outputs true
+
+						//< --> Less Than
+								var x = 76 < -432; //x now outputs false
+								var x = 43 < 67; //x now outputs true
+						
+						//> --> Greater Than
+								var x = 76 > -432; //x now outputs true 
+								var x = 43 > 67; //x now outputs false
+
+						//<= --> Less Than or Equal To
+								var x = 5 <= 5; //x now outputs true
+								var x = 76 <= -432; //x now outputs false
+								var x = 43 <= 67; //x now outputs true
+						
+						//>= --> Greater Than or Equal To
+								var x = 5 <= 5; //x now outputs true
+								var x = 76 >= -432; //x now outputs true 
+								var x = 43 >= 67; //x now outputs false
+
+
+				//Switch Statement
+						//Executes the corresponding codeblock if the variable groceryItem is === any of the cases below.  If not, resort to the default action.
+						var groceryItem = "papaya"
+						switch (groceryItem) {
+						case 'tomato':
+						  console.log('Tomatoes are $0.49');
+						  break;
+						case 'lime':
+						  console.log('Limes are $1.49');
+						  break;
+						case 'papaya':
+						  console.log('Papayas are $1.29');
+						  break;
+						default:
+						  console.log('Invalid item');
+						  break;
+						}
+
+
+				//for loops
+						//for(initiate variable here; condition that will run the loop until it returns false; decriment/incriment variable){
+            		//run this code until the condition comes back false
+            //}
+						for (var i = 0; i<10; i++){
+								//run this code 10 times
+								console.log(i);
+						}
+
+
+----//Functions------------------------------------------------------------------------------------------
+				//Function Declaration
+						function myAddingFunction(a,b){
+								return a + b;
+						}
+				//Function Expression
+						var myAddingFunction = function(a,b){
+								return a + b;
+						}
+
+				//Calling Function
+						var x = myAddingFunction(2,5); //x outputs 7 now
+
+		
+----//JavaScript Objects---------------------------------------------------------------------------------
+				//Creating Objects 
+						//Object literal
+						var person = {
+								firstName:"John",
+								lastName:"Doe",
+								age:50,
+								eyeColor:"blue"
+						};
+
+						//Object Constructor a.k.a. a Prototype
+						function person(first, last, age, eye) {
+								/*Using the "this" keyword basically means that you will be able to access this piece of information outside of the function.
+								this.firstName inside the function will be 
+								person.firstName outside of the function
+								*/
+								this.firstName = first;
+								this.lastName = last;
+								this.age = age;
+								this.eyeColor = eye;
+								
+								//Creating a Method which is a function in an object
+								this.fullName = function(){
+										return this.firstName + this.lastName;
+								}
+						}
+						
+						/*Using the Object Constructor to create new instances with the "new" Keyword
+								The 'new' keyword is needed because without it 
+								myFather would not be a new copy of the person object 
+								but instead a reference to the object
+										With 'new' Keyword myFather is a copy of person
+										Without 'new' Keyword myFather is a reffernces to the person object 
+												and if myFather is manipulated it will change the object constructor
+						*/
+						var myFather = new person("John", "Doe", 50, "blue");     //created a new instance of person called myFather
+						var myMother = new person("Sally", "Rally", 48, "green"); //created a new instance of person called myMother
+						
+						//Accessing information in an object because of the 'this' keyword
+						var mothersEyes = myMother.eyeColor; //mothersEyes will now output "green"
+						var fathersEyes = myFather["eyeColor"]; //fathersEyes will now output "blue"
+
+						var x = "age";
+						var fathersAge = myFather[x]; //fathersAge will now output 50
+
+
+						//Executing a Method
+						var FathersFullName = myFather.fullName();
+
+						//Manipulating a Prototype
+								//Adding a property to a prototype
+										//This adds the 'nationality' property to the person object constructor and gives it a value of "English" so now ever 'new' instance of person will have the property of 'nationality'
+										person.nationality = "English"; 
+										Person.prototype.nationality = "English";
+								//Adding a method to a prototype
+										//The same as adding a property but instead adding a method
+										person.addTenToAge = function(){
+												return this.age + 10;
+										}; 
+										Person.prototype.addTenToAge = function(){
+												return this.age + 10;
+										}; 
+
+						//Loop to iterate through an object
+						var txt = "";
+						var person = {fname:"John", lname:"Doe", age:25}; 
+						var x;
+						for (x in person) {
+						  		txt += person[x] + " ";
+						}
+
+----//Arrays---------------------------------------------------------------------------------------------				
+				//How to push values into an array
+						var arr = [5,3,7,23];
+						//pushing to the end using the push() method
+								arr.push(2); //pushes the number 2 onto the end of the array which will now read [5,3,7,23,2]
+								arr.push(7,4,5); //pushes the numbers 7, 4, and 5 onto the end of the array which will now read [5,3,7,23,2,7,4,5]
+						
+						//pushing to the beginning using the unshift method
+								arr.unshift(88); //pushes the number 88 onto the beginning of the array which will now read [88,5,3,7,23,2,7,4,5]
+								arr.unshift(43,4,50); //pushes the numbers 43, 4, and 50 onto the beginning of the array which will now read [3,4,50,88,5,3,7,23,2,7,4,5]		
+						
+						//pushing to the middle using the splice method
+								//arr.splice(position in the array, the number zero, list of your items separated by commas);
+								arr.splice(3,0,55555); //pushes the number 55555 into the middle of the array in position 3 of the array which will now read [3,4,50,55555,88,5,3,7,23,2,7,4,5]
+								arr.splice(6,0,7777,444); //pushes the numbers 7777, and 444 into the middle of the array in position 6 of the array which will now read [3,4,50,55555,88,5,7777,444,3,7,23,2,7,4,5]		
+
+
+				//How to access elements in an array
+						var arr = [5,3,7,23,64];
+						// array items start at 0 being at the beginning of the array and go up from there
+								var x = arr[0]; // x now outputs 5
+								var x = arr[1]; // x now outputs 3
+								var x = arr[2]; // x now outputs 7
+								
+						//you can also access items at the end of the array using this technique
+								var x = arr[arr.length - 1]; // x now outputs 64
+								var x = arr[arr.length-2]; // x now outputs 23
+								var x = arr[arr.length-3]; // x now outputs 7
+
+						//You can also access groups of items with .slice()
+								//arr.slice(starting position, ending position); //include the starting position and only goes up to the ending position but doesn't include the item in the ending position
+								var x = arr.slice(0,2); // x now outputs [5,3]
+								var x = arr.slice(1,4); // x now outputs [3,7,23]
+								var x = arr.slice(4,2); // x now outputs 7
+
+						//Access arrays through loops
+								//arrays are also often manipulated in loops
+								for (var i = 0; i < arr.length; i++) {
+										//Will log out every item in the array
+										console.log(arr[i]);
+								}
+								for (var i = 0; i < arr.length; i++) {
+										//Will add 1 to every item in the array
+										arr[i] = arr[i] + 1;
+								}
+
+----//Recursion------------------------------------------------------------------------------------------
+				/* Recursion is when a function calls itself inside of it's declartion.
+				Basic Rules for Recursion:
+						Must have a Base Case		
+								-The Base Case prevents infinite recursion and is the condition your recursive case should be working towards
+
+						Must have a Recursive Case
+								-The Recursive case is when you have the function return itself and can be done in many ways but the general idea is your recursive case should be working towards your base cases
+
+						A Termination Condition isn't require but is still recommended
+								-The Terminating Condition is for edge cases and weird inputs
+
+
+				!!!Suggestion:!!!
+						-If working with non-array type values that you want to manipulate, 
+						Step 1:
+								Make you base case an input parameter === 0, 
+						Step 2:
+								-Make the input parameter to the recursive call, less in some way than it was in the beginning, 
+								How?:
+								-By reducing the input parameter in the recursive call directly like 'return function(input - 1)' or 'return (input * 4)/3 - function(input-1)'
+								-Also, you can manipulate a value at some point before the recursive case if it helps
+
+						
+            -If working with arrays you can either use the technique mentioned above and manipulate the array in between Or
+						Step 1:
+								Make your base case related to the length of the array
+						Step 2: 
+								-Use the .Pop() function or any other function to reduce the size of your array in each increment
+								-Also, you can use the last slot in the array to do accumulative type functions like: 
+
+								var x = inputArray.pop()
+								arr[arr.length - 1] += x // or you can multiply or divide or % etc.
+
+						Note: these are not end all solutions to every recursion problem but a great place to start out from in my opinion.				
+				*/		
+
+				//Non Array
+						function countDown(int){
+								//Base Case
+								if (int === 0){
+										return;
+								} 
+								
+								console.log(int);								
+								//Recursive Case
+								return countDown(int - 1);
+						}
+
+						// factorial: 5 for example would be 5*4*3*2*1 == 120
+						function factorial(n) {       
+								if (n < 0) {
+						        //This terminating condition is preventing an error in the case a negative number is used as an input
+						        return;
+						    }
+
+								// Base Case
+								if (n === 0) {
+										return 1;
+								}
+
+								// Recursive Case
+								return n * factorial(n - 1);
+						}
+
+						//Find the Greatest Common Devisor using the Euclidean algorithm
+						//This may be a little harder to see but you can see the second parameter reducing with the % operator
+						function findGCD (a,b){
+						    if (a>b){
+						        var larger = a, smaller = b;
+						    } else {
+						        var larger = b, smaller = a;
+						    }
+						    //Base Case and Termination Condition
+						    if (larger%smaller === 0 || a===b){
+						        return b
+						    }
+						    //Recursive Case
+						    return findGCD(smaller,larger%smaller)
+						}
+				
+        //Array related Recursion
+						//Adds items to an array
+						function countDown(int, arr){
+						    if(int === 0){
+						        return 1;
+						    } else {
+						        arr.push(int);
+						        countDown(int-1);
+						        return;
+						    }
+						}				
+
+						//Multiplies every number in an array
+						function multiplyEach(arr) {
+								// Remove the last value of the stack
+								// and assign it to the variable int
+								int = arr.pop(); 
+								
+								// Base case
+								if (arr.length === 0) {
+										return int;
+								}
+								// Recursive case
+								else {
+										arr[arr.length - 1] = arr[arr.length - 1] * int ;
+										return multiplyEach(arr);
+								}
+						}
+						
+						// Manipulate to each item in array starting with item in position i
+						//This may not be reducing but still follows a similar logic
+						function fixLetterCase(array, i) {    
+								// Base case
+								if (i === array.length) {
+										return;
+								} 
+								
+								// Action
+								array[i] = capitalize(array[i]);
+								
+								// Recursive case
+								return fixLetterCase(array, i + 1);
+						}
